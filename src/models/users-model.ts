@@ -5,7 +5,7 @@ export interface UsersModel {
     password: string;
     name: string;
     last_name: string;
-    birthdate: Date;
+    birthdate: string;
     gender: Gender;
     position: string;
     authorized: boolean;

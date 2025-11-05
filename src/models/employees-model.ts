@@ -5,7 +5,7 @@ export interface EmployeesModel {
     name: string;
     last_name: string;
     social_name: string;
-    birthdate: Date;
+    birthdate: string;
     gender: Gender;
     phone_number: string;
     position: string;
