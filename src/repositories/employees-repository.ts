@@ -29,3 +29,22 @@ const employess_database: EmployeesModel[] = [
 export const listAllEmployees = async (): Promise<EmployeesModel[]> => {
     return employess_database;
 }
+
+export const createNewEmployee = async (newEmployeeData: Omit<EmployeesModel, 'id'>): Promise<EmployeesModel> => {
+    let newId: number;
+    if (employess_database.length === 0) {
+        newId = 1;
+    } else {
+        const maxId = Math.max(...employess_database.map(e => e.id));
+        newId = maxId + 1;
+    }
+
+    const employeeToAdd: EmployeesModel = {
+        ...newEmployeeData,
+        id: newId
+    };
+
+    employess_database.push(employeeToAdd);
+
+    return employeeToAdd;
+}
