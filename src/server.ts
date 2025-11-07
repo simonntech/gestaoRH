@@ -1,19 +1,9 @@
-import express, {Request, Response} from "express";
+import createApp from "./app";
 
-const app = express();
+const APP = createApp();
 
 const PORT = process.env.PORT;
 
-app.use(express.json());
-
-app.listen(PORT, () => {
-    console.info(`API funcionando na porta ${PORT}`);
+APP.listen(PORT, () => {
+    console.info(`API funcionando na porta ${PORT} ...`);
 })
-
-app.get('/', 
-    (req: Request, res: Response)  => {
-        res.status(200).json(
-            {message: 'API de gestão de RH'}
-        );
-    }
-)
