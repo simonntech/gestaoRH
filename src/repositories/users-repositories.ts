@@ -14,6 +14,13 @@ const users_database: UsersModel[] = [
     },
 ]
 
-export const showUserInfos = async (): Promise<UsersModel[]> => {
-    return users_database;
+type UserInfoOutput = Omit<UsersModel, 'password'>;
+
+export const showUserInfos = async ():Promise<UserInfoOutput[]> => {
+    const safeUsers = users_database.map(user => {
+        const { password, ...userInfo} = user;
+        return userInfo as UserInfoOutput;
+    });
+
+    return safeUsers;
 }
