@@ -8,3 +8,4 @@ ROUTER.get("/", async (req, res) => {
 })
 ROUTER.get("/employees", EmployeesController.getEmployees);
 ROUTER.post("/employees", EmployeesController.postEmployee);
+ROUTER.get("/employees:name", EmployeesController.getEmployeeByName);

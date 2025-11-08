@@ -15,3 +15,12 @@ export const postEmployee = async (req: Request, res: Response) => {
         res.status(HttpResponse.statusCode).json(HttpResponse.body)
     };
 };
+
+export const getEmployeeByName = async (req: Request, res: Response) => {
+    const paramValue = req.params.name;
+    const HttpResponse = await Services.findEmployeeService(paramValue);
+
+    if (HttpResponse){
+        res.status(HttpResponse.statusCode).json(HttpResponse.body)
+    };
+}

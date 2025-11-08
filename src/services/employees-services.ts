@@ -34,3 +34,17 @@ export const newEmployeeService = async (employee : EmployeesModel) => {
 
     return response;
 }
+
+export const findEmployeeService = async (employeeName: string) => {
+    let response = null;
+
+    if (employeeName && Object.keys(employeeName).length !== 0) {
+        
+        await EmployeesRepository.findEmployeeByName(employeeName);
+        response = await HttpResponse.ok(employeeName);
+    } else {
+        response = await HttpResponse.noContent();
+    }
+
+    return response;
+}
