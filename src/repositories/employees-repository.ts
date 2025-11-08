@@ -57,5 +57,11 @@ export const newEmployee = async (newEmployeeData: Omit<EmployeesModel, 'id'>): 
 }
 
 export const findEmployeeByName = async (name: string): Promise<EmployeesModel | undefined> => {
-    return employess_database.find(employee => employee.name.toLowerCase() === name.toLowerCase());
+    const normalizedSearchName = name.toLowerCase().trim();
+
+    const foundEmployee = employess_database.find(
+        employee => employee.name.toLowerCase().trim().includes(normalizedSearchName)
+    );
+
+    return foundEmployee;
 }
