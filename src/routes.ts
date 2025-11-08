@@ -1,14 +1,9 @@
 import { Router } from "express";
-import { listAllEmployees } from "./repositories/employees-repository";
+import * as EmployeesController from "./controllers/employees-controller";
 
 export const ROUTER = Router();
 
-ROUTER.get("/employees", async (req, res) => {
-    try {
-        const employees = await listAllEmployees();
-        res.status(200).json(employees);
-    } catch (error) {
-        console.error(error);
-        res.status(500).send("Erro ao buscar funcionários.");
-    }
+ROUTER.get("/", async (req, res) => {
+    res.send("Home page")
 })
+ROUTER.get("/employees", EmployeesController.listEmployees);

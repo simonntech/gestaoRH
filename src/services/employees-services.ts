@@ -2,7 +2,7 @@ import { EmployeesModel } from "../models/employees-model";
 import * as EmployeesRepository from "../repositories/employees-repository";
 import * as HttpResponse from "../utils/http-helper";
 
-export const getEmployeesService = async () => {
+export const listAllEmployeesService = async () => {
     const data = await EmployeesRepository.listAllEmployees();
     let response = null;
 
@@ -10,7 +10,7 @@ export const getEmployeesService = async () => {
         response = await HttpResponse.ok(data);
     } else {
         response = await HttpResponse.noContent();
-
-        return response;
     }
+
+    return response;
 }
