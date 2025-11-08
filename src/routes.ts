@@ -7,3 +7,4 @@ ROUTER.get("/", async (req, res) => {
     res.send("Home page")
 })
 ROUTER.get("/employees", EmployeesController.getEmployees);
+ROUTER.post("/employess", EmployeesController.postEmployee);
