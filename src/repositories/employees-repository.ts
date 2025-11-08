@@ -30,6 +30,13 @@ export const listAllEmployees = async (): Promise<EmployeesModel[]> => {
     return employess_database;
 }
 
+export const checkExistingEmployee = async (name: string, last_name: string): Promise<EmployeesModel | undefined> => {
+    const existingEmployee = employess_database.find(
+        e => e.name.toLowerCase() === name.toLowerCase() && e.last_name.toLowerCase() === last_name.toLowerCase()
+    );
+    return existingEmployee;
+}
+
 export const newEmployee = async (newEmployeeData: Omit<EmployeesModel, 'id'>): Promise<EmployeesModel> => {
     let newId: number;
     if (employess_database.length === 0) {

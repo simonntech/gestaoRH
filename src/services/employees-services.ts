@@ -18,7 +18,14 @@ export const listAllEmployeesService = async () => {
 export const newEmployeeService = async (employee : EmployeesModel) => {
     let response = null;
 
-    if (Object.keys(employee).length !== 0) {
+    if (employee && Object.keys(employee).length !== 0) {
+
+        const existingEmployee = await EmployeesRepository.checkExistingEmployee(employee.name, employee.last_name);
+
+        if (existingEmployee) {
+            return HttpResponse.conflict(`Funcionário com o nome ${employee.name} ${employee.last_name} já está cadastrado!`)
+        }
+        
         await EmployeesRepository.newEmployee(employee);
         response = await HttpResponse.created();
     } else {

@@ -37,3 +37,12 @@ export const unauthorized = async ():Promise<HttpResponse> => {
         },
     }
 };
+
+export const conflict = async (message: string):Promise<HttpResponse> => {
+    return {
+        statusCode: 409,
+        body: {
+            message: message
+        }
+    }
+}
