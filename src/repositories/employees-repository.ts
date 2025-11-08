@@ -30,7 +30,7 @@ export const listAllEmployees = async (): Promise<EmployeesModel[]> => {
     return employess_database;
 }
 
-export const createNewEmployee = async (newEmployeeData: Omit<EmployeesModel, 'id'>): Promise<EmployeesModel> => {
+export const newEmployee = async (newEmployeeData: Omit<EmployeesModel, 'id'>): Promise<EmployeesModel> => {
     let newId: number;
     if (employess_database.length === 0) {
         newId = 1;

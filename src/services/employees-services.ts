@@ -14,3 +14,16 @@ export const listAllEmployeesService = async () => {
 
     return response;
 }
+
+export const newEmployeeService = async (employee : EmployeesModel) => {
+    let response = null;
+
+    if (Object.keys(employee).length !== 0) {
+        await EmployeesRepository.newEmployee(employee);
+        response = await HttpResponse.created();
+    } else {
+        response = await HttpResponse.badRequest();
+    }
+
+    return response;
+}

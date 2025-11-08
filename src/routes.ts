@@ -6,4 +6,4 @@ export const ROUTER = Router();
 ROUTER.get("/", async (req, res) => {
     res.send("Home page")
 })
-ROUTER.get("/employees", EmployeesController.listEmployees);
+ROUTER.get("/employees", EmployeesController.getEmployees);
