@@ -9,7 +9,7 @@ const users_database: UsersModel[] = [
         last_name: 'Master',
         birthdate: '1990-06-30',
         gender: Gender.male,
-        position: 'Admnistrador',
+        position: 'Administrador',
         authorized: true
     },
 ]

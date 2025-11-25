@@ -65,3 +65,15 @@ export const findEmployeeByName = async (name: string): Promise<EmployeesModel |
 
     return foundEmployee;
 }
+
+export const editEmployee = async () => {
+    //TODO
+}
+
+export const deleteEmployee = async () => {
+    //TODO
+}
+
+export const createHourToEmployee = async () => {
+    //TODO
+}
